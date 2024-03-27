@@ -8,7 +8,7 @@ use BigFish\DeliveryGateway\Enums\ProviderEnum;
 
 /**
  * @property ProviderEnum $provider
- * @property PickupPointTypeEnum|null $pickupPointType
+ * @property PickupPointTypeEnum[]|null $pickupPointTypes
  */
 class Provider extends DTO
 {
@@ -24,14 +24,14 @@ class Provider extends DTO
         return $this;
     }
 
-    public function getPickupPointType(): ?PickupPointTypeEnum
+    public function getPickupPointType(): ?array
     {
-        return $this->pickupPointType;
+        return $this->pickupPointTypes;
     }
 
-    public function setPickupPointType(?PickupPointTypeEnum $pickupPointType): self
+    public function setPickupPointType(?array $pickupPointTypes): self
     {
-        $this->pickupPointType = $pickupPointType;
+        $this->pickupPointTypes = $pickupPointTypes;
 
         return $this;
     }
