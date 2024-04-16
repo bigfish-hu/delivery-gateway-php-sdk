@@ -34,6 +34,13 @@ class Client
         return $this;
     }
 
+    public function useGraphQL(GraphQL $graphql): self
+    {
+        $this->graphql = $graphql;
+
+        return $this;
+    }
+
     public function useWebhookHandler(string $name, callable $handler): self
     {
         $this->webhook->useHandler($name, $handler);

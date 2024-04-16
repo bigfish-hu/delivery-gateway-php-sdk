@@ -18,4 +18,17 @@ namespace BigFish\DeliveryGateway\Enums;
  */
 class ProviderEnum extends Enum
 {
+    public static function custom(string $id): self
+    {
+        return new static(sprintf('custom(%s)', $id));
+    }
+
+    protected function isValid(string $value): bool
+    {
+        if (preg_match('/custom\([^)]+\)/', $value)) {
+            return true;
+        }
+
+        return parent::isValid($value);
+    }
 }
