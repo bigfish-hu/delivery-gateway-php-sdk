@@ -1,32 +1,32 @@
 {
-  "name": "bigfish/delivery-gateway-php-sdk",
-  "version": "0.0.3",
-  "description": "BIG FISH Delivery Gateway PHP SDK",
-  "type": "library",
-  "keywords": [
-    "bigfish",
-    "delivery",
-    "gateway"
-  ],
-  "homepage": "https://deliverygateway.hu/",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "BIG FISH",
-      "email": "cafe@bigfish.hu"
-    }
-  ],
-  "support": {
-    "email": "deliverygateway@bigfish.hu"
-  },
-  "require": {
-    "php": ">=7.2",
-    "ext-json": "*"
-  },
-  "autoload": {
-    "psr-4": {
-      "BigFish\\DeliveryGateway\\": "src"
-    }
-  },
-  "minimum-stability": "dev"
+    "name": "bigfish/delivery-gateway-php-sdk",
+    "version": "1.0.0",
+    "description": "BIG FISH Delivery Gateway PHP SDK",
+    "type": "library",
+    "keywords": [
+        "bigfish",
+        "delivery",
+        "gateway"
+    ],
+    "homepage": "https://deliverygateway.hu/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "BIG FISH",
+            "email": "cafe@bigfish.hu"
+        }
+    ],
+    "support": {
+        "email": "deliverygateway@bigfish.hu"
+    },
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BigFish\\DeliveryGateway\\": "src"
+        }
+    },
+    "minimum-stability": "stable"
 }

@@ -2,6 +2,8 @@
 
 namespace BigFish\DeliveryGateway;
 
+use BigFish\DeliveryGateway\GraphQL\DTO;
+
 class Client
 {
     protected $config;
@@ -53,8 +55,38 @@ class Client
         return $this->webhook->handle($this->config);
     }
 
-    public function createSession(DTO\Session\Create $session)
+    public function createSession(DTO\SessionInput $session): DTO\Session
     {
         return $this->graphql->createSession($this->config, $session);
+    }
+
+    public function getProviders(): array
+    {
+        return $this->graphql->getProviders($this->config);
+    }
+
+    public function getPickupPoints(DTO\PickupPointFilterInput $filter): array
+    {
+        return $this->graphql->getPickupPoints($this->config, $filter);
+    }
+
+    public function getPickupPoint(string $id): ?DTO\PickupPoint
+    {
+        return $this->graphql->getPickupPoint($this->config, $id);
+    }
+
+    public function getMerchant(): DTO\Merchant
+    {
+        return $this->graphql->getMerchant($this->config);
+    }
+
+    public function createShipment(DTO\CreateShipmentInput $shipment): DTO\Shipment
+    {
+        return $this->graphql->createShipment($this->config, $shipment);
+    }
+
+    public function upsertOrder(DTO\OrderInput $order)
+    {
+        $this->graphql->upsertOrder($this->config, $order);
     }
 }
