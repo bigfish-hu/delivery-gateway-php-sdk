@@ -99,7 +99,7 @@ class Config
             return $this->apiUrl;
         }
 
-        $host = 'deliverygateway.hu';
+        $host = 'deliverygateway.io';
 
         if ($this->isSandbox()) {
             $host = 'sandbox.' . $host;
