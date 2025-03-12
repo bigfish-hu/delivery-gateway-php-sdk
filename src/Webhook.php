@@ -2,8 +2,8 @@
 
 namespace BigFish\DeliveryGateway;
 
-use BigFish\DeliveryGateway\DTO\Webhook\Event;
 use BigFish\DeliveryGateway\Exception\WebhookException;
+use BigFish\DeliveryGateway\Webhook\DTO;
 
 class Webhook
 {
@@ -70,7 +70,7 @@ class Webhook
             ucfirst($name)
         );
 
-        return 'BigFish\\DeliveryGateway\\DTO\\Webhook\\' . $basename;
+        return 'BigFish\\DeliveryGateway\\Webhook\\DTO\\' . $basename;
     }
 
     protected function getDataTransferObjectClass(string $name): string
@@ -81,7 +81,7 @@ class Webhook
             return $class;
         }
 
-        return Event::class;
+        return DTO::class;
     }
 
     public function handle(Config $config): mixed
