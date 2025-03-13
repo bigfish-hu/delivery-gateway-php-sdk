@@ -4,7 +4,7 @@ namespace BigFish\DeliveryGateway;
 
 class Config
 {
-    protected const VERSION = '1.0.2';
+    protected const VERSION = '1.0.3';
 
     protected $merchantId;
 

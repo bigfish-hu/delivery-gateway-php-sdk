@@ -30,4 +30,9 @@ class DTO
     {
         unset($this->data[$name]);
     }
+
+    public function toArray()
+    {
+        return $this->data;
+    }
 }

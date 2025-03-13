@@ -37,7 +37,7 @@ class Webhook
 
     protected function getSignatureHeader(): ?string
     {
-        return $this->getHeader('HTTP_X_WEBHOOK');
+        return $this->getHeader('HTTP_X_SIGNATURE');
     }
 
     protected function getTimestampHeader(): ?string
