@@ -18,7 +18,7 @@ use BigFish\DeliveryGateway\GraphQL\ObjectType;
  * @property Parcel[]|null $parcels
  * @property Tracking|null $tracking
  * @property ShipmentStatus|null $status
- * @property ShipmentStatus[]|null $history
+ * @property ShipmentEvent[]|null $events
  * @property DateTimeTz|null $createdAt
  * @property Order|null $order
  */
@@ -38,7 +38,7 @@ class Shipment extends ObjectType
         "parcels" => [Parcel::class],
         "tracking" => Tracking::class,
         "status" => ShipmentStatus::class,
-        "history" => [ShipmentStatus::class],
+        "events" => [ShipmentEvent::class],
         "createdAt" => DateTimeTz::class,
         "order" => Order::class,
     ];
@@ -148,11 +148,11 @@ class Shipment extends ObjectType
     }
 
     /**
-     * @return ShipmentStatus[]|null
+     * @return ShipmentEvent[]|null
      */
-    public function getHistory(): ?array
+    public function getEvents(): ?array
     {
-        return $this->history;
+        return $this->events;
     }
 
     /**

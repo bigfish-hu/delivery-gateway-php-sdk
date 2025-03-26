@@ -11,6 +11,7 @@ use BigFish\DeliveryGateway\GraphQL\ObjectType;
  * @property MerchantConfiguration[]|null $configurations
  * @property MerchantConfiguration|null $configuration
  * @property Webhook[]|null $webhooks
+ * @property Theme[]|null $themes
  */
 class Merchant extends ObjectType
 {
@@ -21,6 +22,7 @@ class Merchant extends ObjectType
         "configurations" => [MerchantConfiguration::class],
         "configuration" => MerchantConfiguration::class,
         "webhooks" => [Webhook::class],
+        "themes" => [Theme::class],
     ];
 
     /**
@@ -69,5 +71,13 @@ class Merchant extends ObjectType
     public function getWebhooks(): ?array
     {
         return $this->webhooks;
+    }
+
+    /**
+     * @return Theme[]|null
+     */
+    public function getThemes(): ?array
+    {
+        return $this->themes;
     }
 }

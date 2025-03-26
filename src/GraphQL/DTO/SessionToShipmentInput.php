@@ -5,7 +5,7 @@ namespace BigFish\DeliveryGateway\GraphQL\DTO;
 use BigFish\DeliveryGateway\GraphQL\ObjectType;
 
 /**
- * @property string|null $id
+ * @property string|null $sessionId
  * @property string|null $referenceId
  * @property string|null $sourceId
  * @property string|null $waybillId
@@ -13,15 +13,13 @@ use BigFish\DeliveryGateway\GraphQL\ObjectType;
  * @property bool|null $direct
  * @property ShipmentOriginInput|null $origin
  * @property ShipmentSenderInput|null $sender
- * @property ShipmentDestinationInput|null $destination
- * @property ShipmentRecipientInput|null $recipient
  * @property ParcelInput[]|null $parcels
  * @property OrderInput|null $order
  */
-class UpdateShipmentInput extends ObjectType
+class SessionToShipmentInput extends ObjectType
 {
     protected $casts = [
-        "id" => "string",
+        "sessionId" => "string",
         "referenceId" => "string",
         "sourceId" => "string",
         "waybillId" => "string",
@@ -29,8 +27,6 @@ class UpdateShipmentInput extends ObjectType
         "direct" => "bool",
         "origin" => ShipmentOriginInput::class,
         "sender" => ShipmentSenderInput::class,
-        "destination" => ShipmentDestinationInput::class,
-        "recipient" => ShipmentRecipientInput::class,
         "parcels" => [ParcelInput::class],
         "order" => OrderInput::class,
     ];
@@ -40,9 +36,9 @@ class UpdateShipmentInput extends ObjectType
      *
      * @return self
      */
-    public function setId(string $value): self
+    public function setSessionId(string $value): self
     {
-        $this->id = $value;
+        $this->sessionId = $value;
 
         return $this;
     }
@@ -132,30 +128,6 @@ class UpdateShipmentInput extends ObjectType
     }
 
     /**
-     * @param ShipmentDestinationInput $value
-     *
-     * @return self
-     */
-    public function setDestination(ShipmentDestinationInput $value): self
-    {
-        $this->destination = $value;
-
-        return $this;
-    }
-
-    /**
-     * @param ShipmentRecipientInput $value
-     *
-     * @return self
-     */
-    public function setRecipient(ShipmentRecipientInput $value): self
-    {
-        $this->recipient = $value;
-
-        return $this;
-    }
-
-    /**
      * @param ParcelInput[]|null $value
      *
      * @return self
@@ -182,9 +154,9 @@ class UpdateShipmentInput extends ObjectType
     /**
      * @return string|null
      */
-    public function getId(): ?string
+    public function getSessionId(): ?string
     {
-        return $this->id;
+        return $this->sessionId;
     }
 
     /**
@@ -241,22 +213,6 @@ class UpdateShipmentInput extends ObjectType
     public function getSender(): ?ShipmentSenderInput
     {
         return $this->sender;
-    }
-
-    /**
-     * @return ShipmentDestinationInput|null
-     */
-    public function getDestination(): ?ShipmentDestinationInput
-    {
-        return $this->destination;
-    }
-
-    /**
-     * @return ShipmentRecipientInput|null
-     */
-    public function getRecipient(): ?ShipmentRecipientInput
-    {
-        return $this->recipient;
     }
 
     /**

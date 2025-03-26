@@ -8,6 +8,7 @@ use BigFish\DeliveryGateway\GraphQL\ObjectType;
  * @property string|null $name
  * @property string|null $email
  * @property string|null $phone
+ * @property string|null $bankAccountNumber
  */
 class ShipmentSenderInput extends ObjectType
 {
@@ -15,6 +16,7 @@ class ShipmentSenderInput extends ObjectType
         "name" => "string",
         "email" => "string",
         "phone" => "string",
+        "bankAccountNumber" => "string",
     ];
 
     /**
@@ -54,6 +56,18 @@ class ShipmentSenderInput extends ObjectType
     }
 
     /**
+     * @param string|null $value
+     *
+     * @return self
+     */
+    public function setBankAccountNumber(?string $value): self
+    {
+        $this->bankAccountNumber = $value;
+
+        return $this;
+    }
+
+    /**
      * @return string|null
      */
     public function getName(): ?string
@@ -75,5 +89,13 @@ class ShipmentSenderInput extends ObjectType
     public function getPhone(): ?string
     {
         return $this->phone;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getBankAccountNumber(): ?string
+    {
+        return $this->bankAccountNumber;
     }
 }

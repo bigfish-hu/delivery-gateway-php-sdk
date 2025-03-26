@@ -13,6 +13,7 @@ use BigFish\DeliveryGateway\GraphQL\ObjectType;
  * @property ShippingMethodEnum|null $method
  * @property string|null $provider
  * @property ShipmentStatusEnum|null $status
+ * @property ShipmentResolutionEnum|null $resolution
  */
 class OrderShippingInput extends ObjectType
 {
@@ -25,6 +26,7 @@ class OrderShippingInput extends ObjectType
         "method" => ShippingMethodEnum::class,
         "provider" => "string",
         "status" => ShipmentStatusEnum::class,
+        "resolution" => ShipmentResolutionEnum::class,
     ];
 
     /**
@@ -124,6 +126,18 @@ class OrderShippingInput extends ObjectType
     }
 
     /**
+     * @param ShipmentResolutionEnum|null $value
+     *
+     * @return self
+     */
+    public function setResolution(?ShipmentResolutionEnum $value): self
+    {
+        $this->resolution = $value;
+
+        return $this;
+    }
+
+    /**
      * @return string|null
      */
     public function getName(): ?string
@@ -185,5 +199,13 @@ class OrderShippingInput extends ObjectType
     public function getStatus(): ?ShipmentStatusEnum
     {
         return $this->status;
+    }
+
+    /**
+     * @return ShipmentResolutionEnum|null
+     */
+    public function getResolution(): ?ShipmentResolutionEnum
+    {
+        return $this->resolution;
     }
 }

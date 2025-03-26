@@ -210,4 +210,17 @@ gql;
 
         $this->execute($config, $gql, ['input' => $order->toArray()]);
     }
+
+    public function sessionToShipment(Config $config, DTO\SessionToShipmentInput $shipment)
+    {
+        $gql = /** @lang GraphQL */ <<<gql
+            mutation (\$input: SessionToShipmentInput!) {
+                sessionToShipment(input: \$input)
+            }
+gql;
+
+        $response = $this->execute($config, $gql, ['input' => $shipment->toArray()]);
+
+        return DTO\Shipment::make($response['data']['sessionToShipment']);
+    }
 }

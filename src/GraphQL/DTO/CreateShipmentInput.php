@@ -108,11 +108,11 @@ class CreateShipmentInput extends ObjectType
     }
 
     /**
-     * @param ShipmentOriginInput $value
+     * @param ShipmentOriginInput|null $value
      *
      * @return self
      */
-    public function setOrigin(ShipmentOriginInput $value): self
+    public function setOrigin(?ShipmentOriginInput $value): self
     {
         $this->origin = $value;
 

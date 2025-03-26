@@ -89,4 +89,9 @@ class Client
     {
         $this->graphql->upsertOrder($this->config, $order);
     }
+
+    public function sessionToShipment(DTO\SessionToShipmentInput $shipment)
+    {
+        $this->graphql->sessionToShipment($this->config, $shipment);
+    }
 }
