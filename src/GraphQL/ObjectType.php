@@ -3,6 +3,7 @@
 namespace BigFish\DeliveryGateway\GraphQL;
 
 use BigFish\DeliveryGateway\Exception\DeliveryGatewayException;
+use DateTime;
 use Throwable;
 
 /**
@@ -114,7 +115,13 @@ class ObjectType
         }
 
         foreach ($value as $key => $item) {
-            if (is_a($type, self::class, true) || is_a($type, Type::class, true)) {
+            if (
+                (
+                    is_a($type, self::class, true)
+                    || is_a($type, Type::class, true)
+                )
+                && !is_a($item, $type, true)
+            ) {
                 $item = forward_static_call([$type, 'make'], $item);
             }
 

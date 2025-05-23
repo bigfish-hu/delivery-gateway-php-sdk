@@ -1,6 +1,6 @@
 {
     "name": "bigfish/delivery-gateway-php-sdk",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "BIG FISH Delivery Gateway PHP SDK",
     "type": "library",
     "keywords": [
