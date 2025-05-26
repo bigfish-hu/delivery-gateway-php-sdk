@@ -215,9 +215,12 @@ gql;
     {
         $gql = /** @lang GraphQL */ <<<gql
             mutation (\$input: SessionToShipmentInput!) {
-                sessionToShipment(input: \$input)
+                sessionToShipment(input: \$input) {
+                    id
+                }
             }
 gql;
+
 
         $response = $this->execute($config, $gql, ['input' => $shipment->toArray()]);
 
