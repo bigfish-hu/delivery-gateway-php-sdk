@@ -92,6 +92,6 @@ class Client
 
     public function sessionToShipment(DTO\SessionToShipmentInput $shipment)
     {
-        $this->graphql->sessionToShipment($this->config, $shipment);
+        return $this->graphql->sessionToShipment($this->config, $shipment);
     }
 }
